@@ -6,8 +6,10 @@ import { calcIMC } from "./functions.js"
 export const body = document.querySelector('body')
 export const container = document.querySelector('.container')
 
-const inputWeight = document.getElementById('weight')
-const inputHeight = document.getElementById('height')
+const inputs = {
+  weight: document.getElementById('weight'),
+  height: document.getElementById('height')
+}
 
 const calcButton = document.getElementById('calcButton')
 
@@ -15,8 +17,8 @@ const calcButton = document.getElementById('calcButton')
 function handleIMC(event) {
   event.preventDefault()
 
-  if (inputWeight.value != '' && inputHeight.value != '') {
-    let IMC = calcIMC(inputWeight.value, inputHeight.value)
+  if (inputs.weight.value != '' && inputs.height.value != '') {
+    let IMC = calcIMC(inputs.weight.value, inputs.height.value)
     
     if (!isNaN(IMC)) {
       modal.IMCMessage.innerHTML = IMC
@@ -34,7 +36,7 @@ calcButton.addEventListener('click', handleIMC)
 modal.closeButton.addEventListener('click', modal.hide)
 document.addEventListener('keydown', (event) => {
   if (event.key == 'Escape') {
-    if (!modal.Container.classList.contains('hide')) {
+    if (!modal.container.classList.contains('hide')) {
       modal.hide()
     }
   }
