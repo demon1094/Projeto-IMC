@@ -25,9 +25,11 @@ function handleIMC(event) {
       modal.show()
     } else {
       errorMessage.show()
+      return
     }
   } else {
     errorMessage.show()
+    return
   }
 }
 
