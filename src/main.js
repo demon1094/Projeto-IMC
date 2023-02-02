@@ -1,8 +1,7 @@
 import { modal } from "./modal.js"
 import { errorMessage } from "./error.js"
-import { calcIMC } from "./functions.js"
+import { calcIMC } from "./utils.js"
 
-// Variables
 export const body = document.querySelector('body')
 export const container = document.querySelector('.container')
 
@@ -13,7 +12,6 @@ const inputs = {
 
 const calcButton = document.getElementById('calcButton')
 
-// Callback functions
 function handleIMC(event) {
   event.preventDefault()
 
@@ -33,7 +31,6 @@ function handleIMC(event) {
   }
 }
 
-// Events
 calcButton.addEventListener('click', handleIMC)
 modal.closeButton.addEventListener('click', modal.hide)
 document.addEventListener('keydown', (event) => {
